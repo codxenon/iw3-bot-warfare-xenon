@@ -743,9 +743,9 @@ addOptions()
 	self AddMenu( "man_bots", 2, "Add 7 bot", ::man_bots, "add", 7 + _tempDvar );
 	self AddMenu( "man_bots", 3, "Add 11 bot", ::man_bots, "add", 11 + _tempDvar );
 	self AddMenu( "man_bots", 4, "Add 17 bot", ::man_bots, "add", 17 + _tempDvar );
-	self AddMenu( "man_bots", 4, "Add 23 bot", ::man_bots, "add", 23 + _tempDvar );
-	self AddMenu( "man_bots", 5, "Kick a bot", ::man_bots, "kick", 1 );
-	self AddMenu( "man_bots", 6, "Kick all bots", ::man_bots, "kick", getBotArray().size );
+	self AddMenu( "man_bots", 5, "Add 23 bot", ::man_bots, "add", 23 + _tempDvar );
+	self AddMenu( "man_bots", 6, "Kick a bot", ::man_bots, "kick", 1 );
+	self AddMenu( "man_bots", 7, "Kick all bots", ::man_bots, "kick", getBotArray().size );
 	
 	_tempDvar = getdvarint( "bots_manage_fill_kick" );
 	
