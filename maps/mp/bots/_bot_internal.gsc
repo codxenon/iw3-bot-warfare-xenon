@@ -1022,7 +1022,7 @@ targetObjUpdateTraced( obj, daDist, ent, theTime, isScriptObj )
 	}
 	
 	obj.no_trace_time = 0;
-	obj.trace_time += int( 50 * timeMulti );
+	obj.trace_time += int( level.bots_target_update_interval_ms * timeMulti );
 	obj.dist = daDist;
 	obj.last_seen_pos = ent.origin;
 	obj.trace_time_time = theTime;
@@ -1035,7 +1035,7 @@ targetObjUpdateTraced( obj, daDist, ent, theTime, isScriptObj )
 */
 targetObjUpdateNoTrace( obj )
 {
-	obj.no_trace_time += 50;
+	obj.no_trace_time += level.bots_target_update_interval_ms;
 	obj.trace_time = 0;
 	obj.didlook = false;
 }
@@ -1290,7 +1290,7 @@ target()
 	
 	for ( ;; )
 	{
-		wait 0.05;
+		wait level.bots_target_update_interval;
 		
 		if ( self maps\mp\_flashgrenades::isflashbanged() )
 		{

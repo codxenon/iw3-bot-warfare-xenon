@@ -80,6 +80,7 @@ You can easily setup a local LAN dedicated server for you to join and play on. H
 | bots_main                        | Enable this mod.                                                                            | 1             |
 | bots_main_GUIDs                  | A comma separated list of GUIDs of players who will be given host.                          |               |
 | bots_main_menu                   | Enable the in-game menu for hosts.                                                          | 1             |
+| bots_main_awareness_quality      | Bot awareness quality.<ul><li>`0` - Highest (`50ms`).</li><li>`1` - High (`100ms`).</li><li>`2` - Medium (`200ms`).</li><li>`3` - Low (`400ms`).</li><li>`4` - Lowest (`800ms`).</li></ul> Lower quality reduces system load. | 2 |
 | bots_main_debug                  | Enable the in-game waypoint editor at start of the game, or enable bot event prints. <ul><li>`0` - disable</li><li>`1` - for just debug events</li><li>`2` - for every event</li><ul> | 0 |
 | bots_main_kickBotsAtEnd          | Kick the bots at the end of a match.                                                        | 0             |
 | bots_manage_add                  | Amount of bots to add to the game, once bots are added, resets back to `0`.                 | 0             |
