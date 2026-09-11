@@ -1751,6 +1751,14 @@ load_waypoints()
 	if ( !level.waypoints.size )
 	{
 		BotBuiltinPrintConsole( "No waypoints loaded!" );
+
+		for ( i = 0; i < level.players.size; i++ )
+		{
+			if ( !level.players[ i ] is_bot() )
+			{
+				level.players[ i ] iprintlnbold( "^1Waypoints not found" );
+			}
+		}
 	}
 	
 	for ( i = level.waypoints.size - 1; i >= 0; i-- )
