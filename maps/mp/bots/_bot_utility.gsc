@@ -241,6 +241,22 @@ doHostCheck()
 	}
 	
 	self.pers[ "bot_host" ] = true;
+	self thread warnWaypointsNotFound();
+}
+
+/*
+	Alerts the host after they spawn when no waypoints could be loaded.
+*/
+warnWaypointsNotFound()
+{
+	self endon( "disconnect" );
+	self waittill( "spawned_player" );
+
+	if ( isdefined( level.waypoints_not_found ) && level.waypoints_not_found )
+	{
+		self iprintlnbold( "^1No waypoint data found for this map." );
+		self iprintlnbold( "^1Bot navigation will not work correctly." );
+	}
 }
 
 /*
@@ -1751,14 +1767,7 @@ load_waypoints()
 	if ( !level.waypoints.size )
 	{
 		BotBuiltinPrintConsole( "No waypoints loaded!" );
-
-		for ( i = 0; i < level.players.size; i++ )
-		{
-			if ( !level.players[ i ] is_bot() )
-			{
-				level.players[ i ] iprintlnbold( "^1Waypoints not found" );
-			}
-		}
+		level.waypoints_not_found = true;
 	}
 	
 	for ( i = level.waypoints.size - 1; i >= 0; i-- )
