@@ -8,7 +8,7 @@
 */
 init()
 {
-	level.bw_version = "2.4.0-xenon";
+	level.bw_version = "2.5.0-xenon";
 	
 	if ( getdvar( "bots_main" ) == "" )
 	{
