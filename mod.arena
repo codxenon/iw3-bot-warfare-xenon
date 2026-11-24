@@ -1,0 +1,6 @@
+{
+    longname "Bot Warfare"
+    description "Play multiplayer with configurable bots."
+    author "INeedGames / ineedbots"
+    revision "2.5.0-xenon"
+}

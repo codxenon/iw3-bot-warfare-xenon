@@ -7,6 +7,7 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 ARCHIVE_PREFIX = "iw3bw"
 SOURCE_DIRS = ("maps", "scriptdata", "scripts")
+SOURCE_FILES = ("mod.arena", "preview.dds")
 MOD_ROOT = Path("_codxe/mods/bot_warfare")
 VERSION_PATTERN = re.compile(r'level\.bw_version\s*=\s*"([^"]+)"')
 
@@ -22,10 +23,8 @@ def main() -> None:
     archive_path = repo_root / f"{ARCHIVE_PREFIX}-{match.group(1)}.zip"
 
     with ZipFile(archive_path, "w", ZIP_DEFLATED) as archive:
-        archive.writestr(
-            "_codxe/codxe.json",
-            '{\n  "active_mod": "bot_warfare"\n}\n',
-        )
+        for source_name in SOURCE_FILES:
+            archive.write(repo_root / source_name, (MOD_ROOT / source_name).as_posix())
 
         for source_name in SOURCE_DIRS:
             source_dir = repo_root / source_name
