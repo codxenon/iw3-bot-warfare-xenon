@@ -203,21 +203,23 @@ doHostCheck()
 	
 	result = false;
 
-	// The host client num is not always 0, when a bot is already in the game
-	// when the round starts, it typically gets the client num 0.
-	// The host is the first client with pers["isBot"] undefined.
-	hostClientNum = 0;
-	for (i = 0; i < level.players.size; i++)
+	if ( getdvarint( "splitscreen" ) )
 	{
-		if (!level.players[i] is_bot())
-		{
-			hostClientNum = i;
-			break;
-		}
+		// Stock IW3 gives console end-game controls to server client 0.
+		result = self getentitynumber() == 0;
 	}
-	if (self == level.players[hostClientNum])
+	else
 	{
-		result = true;
+		// Outside the local split-screen lobby, bots can occupy the first slot.
+		for ( i = 0; i < level.players.size; i++ )
+		{
+			player = level.players[ i ];
+			if ( !player is_bot() )
+			{
+				result = self == player;
+				break;
+			}
+		}
 	}
 	
 	DvarGUID = getdvar( "bots_main_GUIDs" );
