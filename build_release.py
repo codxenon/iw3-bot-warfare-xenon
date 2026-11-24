@@ -8,7 +8,7 @@ from zipfile import ZIP_DEFLATED, ZipFile
 ARCHIVE_PREFIX = "iw3bw"
 SOURCE_DIRS = ("maps", "scriptdata", "scripts")
 SOURCE_FILES = ("mod.arena", "preview.dds")
-MOD_ROOT = Path("_codxe/mods/bot_warfare")
+MOD_ROOT = Path("mods/bot_warfare")
 VERSION_PATTERN = re.compile(r'level\.bw_version\s*=\s*"([^"]+)"')
 
 
